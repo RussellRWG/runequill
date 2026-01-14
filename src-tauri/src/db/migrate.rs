@@ -27,7 +27,7 @@ pub fn run(conn: &Connection) -> rusqlite::Result<()> {
         FOREIGN KEY (entity_id) REFERENCES entities(id) ON DELETE CASCADE
         );
         "#,
-    );
+    )?;
 
     Ok(())
 }

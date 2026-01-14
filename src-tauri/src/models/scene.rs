@@ -1,20 +1,14 @@
-pub struct Scene {
-    id: uint32,
-    title: String,
-    preview: String,
-    text: String,
-    tags: array<String>,
-    position: uint32,
+use serde::Serialize;
+
+#[derive(Debug, Serialize)]
+pub struct SceneDTO {
+    pub id: u32,
+    pub name: String,
+    pub text: Option<String>,
+    pub position: u32,
 }
 
-pub fn insert_block(b: block, position: uint32) {
-    following_blocks = get_blocks_after(&position);
-    for b in following_blocks {
-        //increase position of b in database
-    }
-    //insert b into database
-}
-
-fn get_blocks_after(&position: uint32) -> array<Block> {
-    //retrieve all blocks from database after position
+#[derive(Debug, Serialize)]
+pub struct SceneListDTO {
+    pub scenes: Vec<SceneDTO>,
 }
